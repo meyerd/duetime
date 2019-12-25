@@ -16,7 +16,7 @@ public interface ContractionDao {
     @Query("SELECT * FROM " + Contraction.TABLE_NAME)
     List<Contraction> getAll();
 
-    @Query("SELECT * FROM " + Contraction.TABLE_NAME)
+    @Query("SELECT * FROM " + Contraction.TABLE_NAME + " ORDER BY " + Contraction.COLUMN_ID + " DESC")
     Cursor selectAll();
 
     @Query("SELECT * FROM " + Contraction.TABLE_NAME + " WHERE " + Contraction.COLUMN_ID +
@@ -35,6 +35,10 @@ public interface ContractionDao {
             " >= :startDate")
     List<Contraction> getNewerThan(Date startDate);
 
+    @Query("SELECT * FROM " + Contraction.TABLE_NAME + " ORDER by " + Contraction.COLUMN_END +
+        " DESC LIMIT 1")
+    Contraction selectNewest();
+
     @Query("SELECT COUNT(*) FROM " + Contraction.TABLE_NAME)
     int count();
 
@@ -52,4 +56,7 @@ public interface ContractionDao {
 
     @Delete
     int delete(Contraction contraction);
+
+    @Query("DELETE FROM " + Contraction.TABLE_NAME)
+    void deleteAll();
 }

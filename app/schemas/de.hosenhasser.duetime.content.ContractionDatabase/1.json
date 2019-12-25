@@ -2,15 +2,21 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d040b2be72caeaa942b75d8e6a12ddfc",
+    "identityHash": "0b0092697809c1e6d8815b7c4977c044",
     "entities": [
       {
-        "tableName": "Contraction",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `start` INTEGER, `end` INTEGER)",
+        "tableName": "contractions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `interval` INTEGER NOT NULL, `start` INTEGER, `end` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "interval",
+            "columnName": "interval",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -35,12 +41,12 @@
         },
         "indices": [
           {
-            "name": "index_Contraction__id",
+            "name": "index_contractions__id",
             "unique": false,
             "columnNames": [
               "_id"
             ],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_Contraction__id` ON `${TABLE_NAME}` (`_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contractions__id` ON `${TABLE_NAME}` (`_id`)"
           }
         ],
         "foreignKeys": []
@@ -49,7 +55,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd040b2be72caeaa942b75d8e6a12ddfc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0b0092697809c1e6d8815b7c4977c044')"
     ]
   }
 }

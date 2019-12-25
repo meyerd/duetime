@@ -6,4 +6,8 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="padd_10">10dp</dimen>
+    <dimen name="ic_delete">20dp</dimen>
+
+    <dimen name="contraction_list_element_text_margin">3dp</dimen>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="de.hosenhasser.duetime">
 
     <application
@@ -8,12 +9,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <receiver
+            android:name=".NotificationReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".ContractionRunningService"
+            android:exported="false" />
+
         <provider
             android:name=".content.ContractionsContentProvider"
-            android:authorities="de.hosenhasser.duetime.content.Contractions"
+            android:authorities="de.hosenhasser.duetime.content.ContractionsContentProvider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"

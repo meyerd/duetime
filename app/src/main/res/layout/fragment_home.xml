@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="top">
+        android:gravity="top"
+        android:weightSum="100"
+        >
 <!--        <androidx.recyclerview.widget.RecyclerView-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
@@ -28,8 +30,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            android:layout_weight="90"
             android:id="@+id/home_contractions_list"
-            android:name="de.hosenhasser.duetime.ui.home.ContractionListFragment" />
+            android:name="de.hosenhasser.duetime.ui.contraction_list.ContractionListFragment" />
 
         <fragment
             android:layout_width="match_parent"
@@ -39,6 +42,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_gravity="bottom"
+            android:layout_weight="10"
             android:id="@+id/home_start_stop_fragment"
             android:name="de.hosenhasser.duetime.ui.start_stop.StartStopFragment" />
     </LinearLayout>
